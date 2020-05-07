@@ -467,6 +467,10 @@ func state0(s *scanner, c int) int {
 		s.step = stateE
 		return scanContinue
 	}
+	if '0' <= c && c <= '9' {
+		s.step = state1
+		return scanContinue
+	}
 	return stateEndValue(s, c)
 }
 
